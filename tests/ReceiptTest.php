@@ -23,10 +23,10 @@ class ReceiptTest extends TestCase
 
     /**
      *  @dataProvider provideTotal
+     *
      * @param array $items
      * @param float $expected
      */
-
     public function testTotal(array $items, float $expected)
     {
         $coupon = null;
