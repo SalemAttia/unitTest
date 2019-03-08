@@ -8,7 +8,7 @@ use TDD\Receipt;
 
 class ReceiptTest extends TestCase
 {
-    /** @var Receipt */
+    /** @var Receipt $Receipt */
     public $Receipt;
 
     public function setUp()
@@ -24,9 +24,21 @@ class ReceiptTest extends TestCase
     public function testTotal()
     {
         $values = [0, 2, 4, 8];
+        $coupon = null;
         $this->assertEquals(
             14,
-            $this->Receipt->total($values),
+            $this->Receipt->total($values, $coupon),
+            'when Summing the total should equal 14'
+        );
+    }
+
+    public function testTotalAndCoupon()
+    {
+        $values = [0, 2, 4, 8];
+        $coupon = 0.20;
+        $this->assertEquals(
+            11.2,
+            $this->Receipt->total($values, $coupon),
             'when Summing the total should equal 14'
         );
     }
