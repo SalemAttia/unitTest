@@ -8,14 +8,38 @@ use TDD\Receipt;
 
 class ReceiptTest extends TestCase
 {
+    /** @var  Receipt */
+    public $Receipt;
+
+    public function setUp()
+    {
+        $this->Receipt = new Receipt();
+    }
+
+    public function tearDown()
+    {
+        unset($this->Receipt);
+    }
+
     public function testTotal()
     {
-        $Receipt = new Receipt();
         $values = [0, 2, 4, 8];
         $this->assertEquals(
             14,
-            $Receipt->total($values),
+            $this->Receipt->total($values),
             'when Summing the total should equal 14'
         );
+    }
+
+    public function testTax()
+    {
+        $inputAmount = 10.00;
+        $taxInput = 0.10;
+        $output = $this->Receipt->tax($inputAmount, $taxInput);
+        $this->assertEquals(
+            1.00,
+            $output,
+            'the tax calculation should equal 1.00'
+            );
     }
 }
