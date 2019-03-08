@@ -3,9 +3,9 @@
 namespace TDD\Test;
 
 require dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
+use Exception;
 use PHPUnit\Framework\TestCase;
 use TDD\Receipt;
-use Exception;
 
 class ReceiptTest extends TestCase
 {
