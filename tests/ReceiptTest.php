@@ -27,7 +27,7 @@ class ReceiptTest extends TestCase
         $coupon = null;
         $this->assertEquals(
             14,
-            $this->Receipt->total($values, $coupon),
+            $this->Receipt->total($coupon, $values),
             'when Summing the total should equal 14'
         );
     }
@@ -38,7 +38,7 @@ class ReceiptTest extends TestCase
         $coupon = 0.20;
         $this->assertEquals(
             11.2,
-            $this->Receipt->total($values, $coupon),
+            $this->Receipt->total($coupon, $values),
             'when Summing the total should equal 14'
         );
     }

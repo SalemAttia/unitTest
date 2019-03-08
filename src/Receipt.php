@@ -4,7 +4,7 @@ namespace TDD;
 
 class Receipt
 {
-    public function total(array  $items = [], ?float $coupon): float
+    public function total(?float $coupon, array  $items = []): float
     {
         /** @var float $sum */
         $sum = array_sum($items);
