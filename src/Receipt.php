@@ -1,4 +1,5 @@
 <?php
+
 namespace TDD;
 
 class Receipt
