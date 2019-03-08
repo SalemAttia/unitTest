@@ -1,4 +1,6 @@
-<?php namespace TDD\Test;
+<?php
+
+namespace TDD\Test;
 
 require dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 use PHPUnit\Framework\TestCase;

@@ -1,6 +1,8 @@
-<?php namespace TDD;
+<?php
+namespace TDD;
 
-class Receipt {
+class Receipt
+{
     public function total(array  $items = [])
     {
         return array_sum($items);
