@@ -2,10 +2,15 @@
 
 namespace TDD;
 
+use Exception;
+
 class Receipt
 {
     public function total(?float $coupon, array  $items = []): float
     {
+        if ($coupon > 1.00) {
+            throw new Exception();
+        }
         /** @var float $sum */
         $sum = array_sum($items);
         if (!is_null($coupon)) {

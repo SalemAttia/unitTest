@@ -5,6 +5,7 @@ namespace TDD\Test;
 require dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 use PHPUnit\Framework\TestCase;
 use TDD\Receipt;
+use Exception;
 
 class ReceiptTest extends TestCase
 {
@@ -55,6 +56,14 @@ class ReceiptTest extends TestCase
             $this->Receipt->total($coupon, $values),
             'when Summing the total should equal 14'
         );
+    }
+
+    public function testTotalAndCouponLimitException()
+    {
+        $values = [0, 2, 4, 8];
+        $coupon = 1.20;
+        $this->expectException(Exception::class);
+        $this->Receipt->total($coupon, $values);
     }
 
     public function testPostTaxTotalUseStub()
