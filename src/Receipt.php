@@ -8,9 +8,10 @@ class Receipt
     {
         /** @var float $sum */
         $sum = array_sum($items);
-        if (!is_null($coupon)){
+        if (!is_null($coupon)) {
             return $sum - ($sum * $coupon);
         }
+
         return $sum;
     }
 
