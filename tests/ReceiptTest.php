@@ -8,7 +8,8 @@ use TDD\Receipt;
 
 class ReceiptTest extends TestCase
 {
-    /** @var  Receipt */
+
+    /** @var Receipt */
     public $Receipt;
 
     public function setUp()
