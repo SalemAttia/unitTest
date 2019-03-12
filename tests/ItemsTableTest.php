@@ -1,14 +1,16 @@
 <?php
 namespace TDD\Test;
-require dirname( dirname(__FILE__) ) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+
+require dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
 use PHPUnit\Framework\TestCase;
 use TDD\ItemsTable;
 use \PDO;
 
-class ItemsTableTest extends TestCase {
-
-    public function setUp() {
+class ItemsTableTest extends TestCase
+{
+    public function setUp()
+    {
         $this->PDO = $this->getConnection();
         $this->createTable();
         $this->populateTable();
@@ -16,12 +18,14 @@ class ItemsTableTest extends TestCase {
         $this->ItemsTable = new ItemsTable($this->PDO);
     }
 
-    public function tearDown() {
+    public function tearDown()
+    {
         unset($this->ItemsTable);
         unset($this->PDO);
     }
 
-    public function testFindForId() {
+    public function testFindForId()
+    {
         $id = 1;
 
         $result = $this->ItemsTable->findForId($id);
@@ -42,7 +46,8 @@ class ItemsTableTest extends TestCase {
         );
     }
 
-    public function testFindForIdMock() {
+    public function testFindForIdMock()
+    {
         $id = 1;
 
         $PDOStatement = $this->getMockBuilder('\PDOStatement')
@@ -79,11 +84,13 @@ class ItemsTableTest extends TestCase {
         );
     }
 
-    protected function getConnection() {
+    protected function getConnection()
+    {
         return new PDO('sqlite::memory:');
     }
 
-    protected function createTable() {
+    protected function createTable()
+    {
         $query = "
 		CREATE TABLE `items` (
 			`id`	INTEGER,
@@ -95,7 +102,8 @@ class ItemsTableTest extends TestCase {
         $this->PDO->query($query);
     }
 
-    protected function populateTable() {
+    protected function populateTable()
+    {
         $query = "
 		INSERT INTO `items` VALUES (1,'Candy',1.00);
 		INSERT INTO `items` VALUES (2,'TShirt',5.34);
